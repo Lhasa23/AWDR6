@@ -18,7 +18,7 @@
 			<tr class="<%= cycle("list_line_odd", "list_line_even") %>">
 
 				<td class="image">
-					<%= product.image_url %>
+					<%= image_tag(product.image_url, class: 'list_image') %>
 				</td>
 
 				<td class="description">
