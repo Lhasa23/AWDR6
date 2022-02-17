@@ -15,7 +15,7 @@
 	</tfoot>
 	<tbody>
 		<% @products.each do |product| %>
-			<tr>
+			<tr class="<%= cycle("list_line_odd", "list_line_even") %>">
 
 				<td class="image">
 					<%= product.image_url %>
