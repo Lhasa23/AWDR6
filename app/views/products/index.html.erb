@@ -24,7 +24,7 @@
 				<td class="description">
 					<h1><%= product.title %></h1>
 					<p>
-						<%= product.description %>
+						<%= strip_tags(product.description) %>
 					</p>
 				</td>
 
