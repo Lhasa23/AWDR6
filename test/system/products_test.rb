@@ -3,6 +3,7 @@ require "application_system_test_case"
 class ProductsTest < ApplicationSystemTestCase
   setup do
     @product = products(:one)
+    @product_two = products(:two)
   end
 
   test "visiting the index" do
@@ -14,10 +15,10 @@ class ProductsTest < ApplicationSystemTestCase
     visit products_url
     click_on "New Product"
 
-    fill_in "Description", with: @product.description
-    fill_in "Image url", with: @product.image_url
-    fill_in "Price", with: @product.price
-    fill_in "Title", with: @product.title
+    fill_in "Description", with: @product_two.description
+    fill_in "Image url", with: @product_two.image_url
+    fill_in "Price", with: @product_two.price
+    fill_in "Title", with: '1111'
     click_on "Create Product"
 
     assert_text "Product was successfully created"
@@ -30,8 +31,7 @@ class ProductsTest < ApplicationSystemTestCase
 
     fill_in "Description", with: @product.description
     fill_in "Image url", with: @product.image_url
-    fill_in "Price", with: @product.price
-    fill_in "Title", with: @product.title
+    fill_in "Title", with: '2222'
     click_on "Update Product"
 
     assert_text "Product was successfully updated"
