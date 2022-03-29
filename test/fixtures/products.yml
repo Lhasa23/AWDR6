@@ -3,23 +3,23 @@
 one:
   title: xu_hong_order
   description: MyText
-  image_url: crystal.jpg
+  image_url: MyString
   price: 9.99
 
 two:
   title: eleven_order
   description: MyText
-  image_url: crystal.jpg
+  image_url: MyString
   price: 9.99
 
-cabbage_order:
-  title: cabbage_order
-  description: cabbage for eatting
-  image_url: ridocker.jpg
-  price: 10
+# cabbage_order:
+#   title: cabbage_order
+#   description: cabbage for eatting
+#   image_url: ridocker.jpg
+#   price: 10
 
-ruby:
-  title: Programming Crystal
-  description: cabbage for eatting
-  image_url: ridocker.jpg
-  price: 10
+# ruby:
+#   title: Programming Crystal
+#   description: cabbage for eatting
+#   image_url: ridocker.jpg
+#   price: 10
