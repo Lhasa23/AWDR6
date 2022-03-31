@@ -40,7 +40,7 @@ class ProductTest < ActiveSupport::TestCase
            http://a.b.c/x/y/z/fred.gif }
     bad = %w{ fred.doc fred.gif/more fred.gif.more }
     ok.each do |image_url|
-      assert new_product(image_url).valid?
+      assert new_product(image_url).valid?, "#{image_url} shouldn't be invalid"
     end
     bad.each do |image_url|
       assert new_product(image_url).invalid?, "#{image_url} shouldn't be valid"
