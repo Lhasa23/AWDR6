@@ -65,4 +65,14 @@ class ProductTest < ActiveSupport::TestCase
     assert_equal [I18n.translate('errors.messages.taken')],
                  product.errors[:title]
   end
+
+  test 'product title length must be greater than or equal 10' do
+    product = Product.new(title: 'nba',
+                          description: 'are you ok',
+                          price: 1,
+                          image_url: 'https://1.png')
+    assert product.invalid?
+    assert_equal ['title length must be greater than or equal 10'], product.errors[:title]
+  end
+
 end
