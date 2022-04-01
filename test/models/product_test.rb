@@ -13,7 +13,7 @@ class ProductTest < ActiveSupport::TestCase
   end
 
   test 'product price must be positive' do
-    product = Product.new(title: 'new pruduct 1',
+    product = Product.new(title: 'new product 1',
                           description: '123123',
                           image_url: 'https://1.png')
     product.price = -1
@@ -78,5 +78,4 @@ class ProductTest < ActiveSupport::TestCase
     assert product.invalid?
     assert_equal ["can't be blank"], product.errors[:title]
   end
-
 end
