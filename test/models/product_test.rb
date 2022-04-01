@@ -73,6 +73,10 @@ class ProductTest < ActiveSupport::TestCase
                           image_url: 'https://1.png')
     assert product.invalid?
     assert_equal ['title length must be greater than or equal 10'], product.errors[:title]
+
+    product.title = ''
+    assert product.invalid?
+    assert_equal ["can't be blank"], product.errors[:title]
   end
 
 end
