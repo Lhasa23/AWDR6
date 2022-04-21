@@ -1,3 +1,5 @@
+// app/assets/stylesheets/application.scss
+
 /*
  * This is a manifest file that'll be compiled into application.css,
  * which will include all the files listed below.
@@ -16,11 +18,10 @@
  *= require_self
  */
 
-body {
+ body {
   margin: 0;
   padding: 0;
 }
-
 header.main {
   text-align: center; // center on mobile
   @media (min-width: 30em) {
@@ -49,7 +50,7 @@ header.main {
   -webkit-box-direction: normal;
 
   @media (min-width: 30em) {
-    flex-direction: row; // desktop is vertically laid out
+    flex-direction: row;  // desktop is vertically laid out
     -webkit-box-orient: horizontal;
   }
 
@@ -88,8 +89,10 @@ header.main {
       }
     }
   }
+<<<<<<< HEAD
 
   main {
     padding: 0.5em;
   }
 }
+
