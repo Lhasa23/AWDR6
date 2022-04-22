@@ -9,6 +9,11 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
     get products_url
     assert_response :success
+    assert_select '.description' do |elements|
+      elements.each do |element|
+        assert_select element, '.price', /[\$\￥]\s?[,\d]+\.\d{2}$/
+      end
+    end
   end
 
   test "should get new" do

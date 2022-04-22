@@ -26,6 +26,9 @@
 					<p>
 						<%= truncate strip_tags(product.description), length: 80 %>
 					</p>
+					<p class="price">
+						<%= number_to_currency(product.price, locale: "zh-CN") %>
+					</p>
 				</td>
 
 				<td class="actions">
