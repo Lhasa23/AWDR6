@@ -45,4 +45,12 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to line_items_url
   end
+
+  test "add product twice" do
+    product = products(:one)
+    post line_items_url, params: { line_item: { product_id: product.id } }
+    post line_items_url, params: { line_item: { product_id: product.id } }
+
+    assert_equal 2, assigns[:line_item].quantity
+  end
 end
