@@ -1,27 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Line Items</h1>
+<h1>Cart</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Product</th>
-      <th>Cart</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Price</th>
+		</tr>
+	</thead>
 
-  <tbody>
-    <% @line_items.each do |line_item| %>
-      <tr>
-        <td><%= line_item.product.title %></td>
-        <td><%= line_item.product.price %></td>
-        <td><%= line_item.cart_id %></td>
-      </tr>
-    <% end %>
-  </tbody>
+	<tbody class="line-items">
+		<% @line_items.each do |line_item| %>
+			<tr class="line-item">
+				<td class="title"><%= line_item.product.title %></td>
+				<td class="price">
+					<%= number_to_currency(line_item.product.price, locale: 'zh-CN') %>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Line Item', new_line_item_path %>
+<div class="total">
+	<span>
+		Total:
+	</span>
+	<span class="price">
+		<% total_price = @line_items.sum { |line_item| line_item.product.price }.to_f %>
+		<%= number_to_currency(total_price, locale: 'zh-CN') %>
+	</span>
+</div>

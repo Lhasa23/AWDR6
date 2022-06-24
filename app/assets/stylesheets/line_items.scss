@@ -1,3 +1,41 @@
 // Place all the styles related to the LineItems controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@mixin price {
+  .price {
+    font-size: 14px;
+    color: #999999;
+  }
+}
+
+table {
+  thead tr {
+    th {
+      font-size: 16px;
+      font-weight: bold;
+      color: #333333;
+    }
+  }
+
+  tbody.line-items {
+    .line-item {
+      @include price;
+
+      .title {
+        font-size: 14px;
+        font-weight: 500;
+        color: #333333;
+      }
+    }
+  }
+}
+
+.total {
+  margin-top: 20px;
+  padding: 8px;
+  border-top: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+
+  @include price;
+}
