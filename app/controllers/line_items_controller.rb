@@ -22,7 +22,7 @@ class LineItemsController < ApplicationController
   # POST /line_items or /line_items.json
   def create
     product = Product.find(line_item_params[:product_id])
-    @line_item = @cart.line_items.build(product: product, quantity: 1)
+    @line_item = @cart.line_items.build(product: product)
 
     respond_to do |format|
       if @line_item.save
