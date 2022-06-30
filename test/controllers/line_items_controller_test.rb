@@ -46,11 +46,11 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to line_items_url
   end
 
-  test "add product twice" do
-    product = products(:one)
-    post line_items_url, params: { line_item: { product_id: product.id } }
-    post line_items_url, params: { line_item: { product_id: product.id } }
+  test "add line item twice" do
+    params = { line_item: { cart_id: @line_item.cart_id, product_id: @line_item.product_id } }
+    post line_items_url, params: params
+    post line_items_url, params: params
 
-    assert_equal 2, assigns[:line_item].quantity
+    assert_equal(2, LineItem.last.quantity)
   end
 end
