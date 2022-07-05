@@ -6,7 +6,9 @@
 	<thead>
 		<tr>
 			<th>Title</th>
+			<th>Quantity</th>
 			<th>Price</th>
+			<th>Amount</th>
 		</tr>
 	</thead>
 
@@ -14,8 +16,16 @@
 		<% @line_items.each do |line_item| %>
 			<tr class="line-item">
 				<td class="title"><%= line_item.product.title %></td>
+				<td class="quantity">
+					<button class="calculate minus">-</button>
+					<%= line_item.quantity %>
+					<button class="calculate add">+</button>
+				</td>
 				<td class="price">
 					<%= number_to_currency(line_item.product.price, locale: 'zh-CN') %>
+				</td>
+				<td class="amount">
+					<%= number_to_currency(line_item.product.price * line_item.quantity, locale: 'zh-CN') %>
 				</td>
 			</tr>
 		<% end %>
@@ -27,7 +37,7 @@
 		Total:
 	</span>
 	<span class="price">
-		<% total_price = @line_items.sum { |line_item| line_item.product.price }.to_f %>
+		<% total_price = @line_items.sum { |line_item| line_item.product.price * line_item.quantity }.to_f %>
 		<%= number_to_currency(total_price, locale: 'zh-CN') %>
 	</span>
 </div>

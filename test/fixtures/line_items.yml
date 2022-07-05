@@ -3,7 +3,7 @@
 one:
   product: two
   cart: one
-  quantity: 1
+  quantity: 2
 
 two:
   product: two

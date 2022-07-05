@@ -53,4 +53,11 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
 
     assert_equal(2, LineItem.last.quantity)
   end
+
+  test "should update line item quantity" do
+    line_item = line_items(:one)
+    new_quantity = line_item.quantity + 1
+    put line_item_url(line_item), params: { line_item: { quantity: new_quantity } }
+    assert_equal(new_quantity, line_item.reload.quantity)
+  end
 end

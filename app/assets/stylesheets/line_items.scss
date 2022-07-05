@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 @mixin price {
-  .price {
+  .price, .amount {
     font-size: 14px;
     color: #999999;
   }
