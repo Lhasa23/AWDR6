@@ -53,7 +53,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "can't destroy product in cart" do
-    assert_difference('Product.count',0) do
+    assert_difference('Product.count', 0) do
       delete product_url(products(:two))
     end
 
