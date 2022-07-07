@@ -14,12 +14,12 @@
 
 	<tbody class="line-items">
 		<% @line_items.each do |line_item| %>
-			<tr class="line-item">
+			<tr id="<%= line_item.id %>" class="line-item">
 				<td class="title"><%= line_item.product.title %></td>
 				<td class="quantity">
-					<button class="calculate minus">-</button>
+					<%= link_to '-', line_item_path(line_item, params: { line_item: { quantity: line_item.quantity - 1 }}), method: :put, calss: 'calculate', remote: true %>
 					<%= line_item.quantity %>
-					<button class="calculate add">+</button>
+					<%= link_to '+', line_item_path(line_item, params: { line_item: { quantity: line_item.quantity + 1 }}), method: :put, calss: 'calculate', remote: true %>
 				</td>
 				<td class="price">
 					<%= number_to_currency(line_item.product.price, locale: 'zh-CN') %>
