@@ -17,15 +17,15 @@
 			<tr class="line-item">
 				<td class="title"><%= line_item.product.title %></td>
 				<td class="quantity">
-					<button class="calculate minus">-</button>
+					<%= link_to "-", line_item_path(id: line_item, params: {line_item: {quantity:line_item.quantity - 1}}),method: :patch %>
 					<%= line_item.quantity %>
-					<button class="calculate add">+</button>
+					<%= link_to "+", line_item_path(id: line_item, params: {line_item: {quantity:line_item.quantity + 1}}),method: :patch %> 
 				</td>
 				<td class="price">
 					<%= number_to_currency(line_item.product.price, locale: 'zh-CN') %>
 				</td>
 				<td class="amount">
-					<%= number_to_currency(line_item.product.price * line_item.quantity, locale: 'zh-CN') %>
+					<%= number_to_currency(line_item.quantity * line_item.product.price, locale: 'zh-CN') %>
 				</td>
 			</tr>
 		<% end %>
