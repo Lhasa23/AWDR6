@@ -18,6 +18,11 @@
 		<section class="content">
 			<nav class="side_nav">
 				<ul>
+					<% if session[:counter] > 5 %>
+						<li style="color: white">
+							<%= pluralize(session[:counter], "times") %>
+						</li>
+					<% end %>
 					<li style="color: white">
 						<%= Time.now.strftime("%Y/%m/%d %H:%M:%S") %>
 					</li>
