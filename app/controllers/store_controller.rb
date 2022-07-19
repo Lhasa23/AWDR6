@@ -1,8 +1,8 @@
 class StoreController < ApplicationController
-  include AccessControl
+  include AccessCounter
+  before_action :access_count
 
   def index
-    access_counter
     @products = Product.order(:title)
   end
 end

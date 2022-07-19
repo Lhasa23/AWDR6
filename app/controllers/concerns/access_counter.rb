@@ -1,7 +1,7 @@
-module AccessControl
+module AccessCounter
   private
 
-  def access_counter
+  def access_count
     if session[:counter].nil?
       session[:counter] = 1
     else

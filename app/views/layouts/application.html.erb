@@ -18,7 +18,7 @@
 		<section class="content">
 			<nav class="side_nav">
 				<ul>
-					<% if session[:counter] > 5 %>
+					<% if session.fetch(:counter, 0) > 5 %>
 						<li style="color: white">
 							<%= pluralize(session[:counter], "times") %>
 						</li>
