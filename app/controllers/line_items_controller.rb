@@ -1,5 +1,8 @@
 class LineItemsController < ApplicationController
+  include AccessCounter
+
   before_action :set_line_item, only: %i[ show edit update destroy ]
+  before_action :access_count_reset, only: [:create]
 
   # GET /line_items or /line_items.json
   def index

@@ -8,4 +8,8 @@ module AccessCounter
       session[:counter] += 1
     end
   end
+
+  def access_count_reset
+    session[:counter] = 0
+  end
 end
