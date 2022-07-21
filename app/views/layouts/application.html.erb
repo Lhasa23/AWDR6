@@ -19,7 +19,7 @@
 			<nav class="side_nav">
 				<ul>
 					<% if session.fetch(:counter, 0) > 5 %>
-						<li style="color: white">
+						<li class="access-count" style="color: white">
 							<%= pluralize(session[:counter], "times") %>
 						</li>
 					<% end %>
