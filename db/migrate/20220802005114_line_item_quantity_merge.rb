@@ -12,5 +12,10 @@ class LineItemQuantityMerge < ActiveRecord::Migration[6.1]
   end
 
   def down
+    line_items = LineItem.where("quantity > 1")
+    line_items.each do |line_item|
+      line_item.quantity.times { LineItem.create(product_id: line_item.product_id, quantity: 1, cart_id: line_item.cart_id) }
+    end
+    line_items.delete_all
   end
 end
