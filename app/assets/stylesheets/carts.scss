@@ -1,0 +1,60 @@
+// Place all the styles related to the LineItems controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+@mixin price {
+  .price, .amount {
+    font-size: 14px;
+    color: #999999;
+  }
+}
+
+@mixin btn {
+  padding: 8px;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 4px;
+}
+
+table {
+  border-spacing: 10px;
+
+  thead tr {
+    th {
+      font-size: 16px;
+      font-weight: bold;
+      color: #333333;
+    }
+  }
+
+  tbody.line-items {
+    .line-item {
+      @include price;
+
+      .btn-primary {
+        @include btn;
+        background-color: #408cff;
+      }
+
+      .title {
+        font-size: 14px;
+        font-weight: 500;
+        color: #333333;
+      }
+
+      .btn-danger {
+        @include btn;
+        background-color: #CC3F33;
+      }
+    }
+  }
+}
+
+.total {
+  margin-top: 20px;
+  padding: 8px;
+  border-top: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+
+  @include price;
+}

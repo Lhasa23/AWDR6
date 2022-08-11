@@ -4,38 +4,14 @@ class LineItemsController < ApplicationController
   before_action :set_line_item, only: %i[ show edit update destroy ]
   after_action :access_count_reset, only: [:create]
 
-  # GET /line_items or /line_items.json
-  def index
-    @line_items = @cart.line_items
-  end
-
-  # GET /line_items/1 or /line_items/1.json
-  def show
-  end
-
-  # GET /line_items/new
-  def new
-    @line_item = LineItem.new
-  end
-
-  # GET /line_items/1/edit
-  def edit
-  end
-
   # POST /line_items or /line_items.json
   def create
     product = Product.find(line_item_params[:product_id])
-    @line_item = LineItem.find_by(cart_id: @cart.id, product_id: product.id)
-
-    if @line_item.nil?
-      @line_item = @cart.line_items.build(product: product)
-    else
-      @line_item.quantity += 1
-    end
+    @line_item = @cart.add_product(product)
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to line_item_url(@line_item), notice: "Line item was successfully created." }
+        format.html { redirect_to cart_url(@cart), notice: "Line item was successfully created." }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -47,8 +23,8 @@ class LineItemsController < ApplicationController
     respond_to do |format|
       if @line_item.update(line_item_params)
         @line_items = @cart.line_items
-        format.js
         format.html { redirect_to line_item_url(@line_item), notice: "Line Item was successfully updated." }
+        format.js
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @line_item.errors, status: :unprocessable_entity }
