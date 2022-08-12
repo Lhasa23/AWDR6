@@ -33,6 +33,9 @@ jobs:
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
     - name: Setup Rails Webpacker
       run: bin/rails webpacker:install
+      
+    - name: migrate
+      run: bin/rails db:migrate RAILS_ENV=test
 
     - name: Run tests
       run: bin/rake test
