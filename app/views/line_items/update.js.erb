@@ -1,2 +1,2 @@
-$('#<%= @line_item.id %>').html(`<%= render 'line_item', line_item: @line_item %>`)
-$('.total .price').html(`<%= render 'total_price' %>`)
+$('#<%= @line_item.id %>').html(`<%= render 'carts/line_item', line_item: @line_item %>`)
+$('.total .price').html(`<%= render 'carts/total_price' %>`)
