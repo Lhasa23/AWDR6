@@ -14,11 +14,7 @@
   </thead>
 
   <tbody class="line-items">
-  <% @line_items.each do |line_item| %>
-    <tr id="<%= line_item.id %>" class="line-item">
-      <%= render 'line_item', line_item: line_item %>
-    </tr>
-  <% end %>
+	<%= render @line_items %>
   </tbody>
 </table>
 
@@ -27,6 +23,6 @@
 		Total:
 	</span>
   <span class="price">
-		<%= render 'total_price' %>
+		<%= render 'line_items/total_price' %>
 	</span>
 </div>
