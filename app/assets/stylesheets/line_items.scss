@@ -8,6 +8,13 @@
   }
 }
 
+@mixin actions {
+  padding: 8px;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 4px;
+}
+
 table {
   border-spacing: 10px;
 
@@ -24,10 +31,7 @@ table {
       @include price;
 
       .calculate {
-        padding: 8px;
-        text-decoration: none;
-        color: #fff;
-        border-radius: 4px;
+        @include actions;
         background-color: #408cff;
       }
 
@@ -35,6 +39,13 @@ table {
         font-size: 14px;
         font-weight: 500;
         color: #333333;
+      }
+
+      .action {
+        .destroy-btn {
+          @include actions;
+          background-color: red;
+        }
       }
     }
   }
