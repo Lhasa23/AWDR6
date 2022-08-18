@@ -1,7 +1,7 @@
 class LineItemsController < ApplicationController
   include AccessCounter
 
-  before_action :set_line_item, only: %i[ show edit update destroy ]
+  before_action :set_line_item, only: %i[ update destroy ]
   after_action :access_count_reset, only: [:create]
 
   # POST /line_items or /line_items.json
