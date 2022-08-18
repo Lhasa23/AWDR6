@@ -3,7 +3,7 @@
   <td class="quantity">
     <%= link_to "-", line_item_path(id: line_item, params: { line_item: { quantity:line_item.quantity - 1 }}), class: 'btn-primary minus', method: :patch, remote: true  %>
     <%= line_item.quantity %>
-    <%= link_to "+", line_item_path(id: line_item, params: { line_item: { quantity:line_item.quantity + 1 }}), class: 'btn-primary add', method: :patch, remote: true %> 
+    <%= link_to "+", line_item_path(id: line_item, params: { line_item: { quantity:line_item.quantity + 1 }}), class: 'btn-primary add', method: :patch, remote: true %>
   </td>
   <td class="price">
     <%= number_to_currency(line_item.product.price, locale: 'zh-CN') %>
