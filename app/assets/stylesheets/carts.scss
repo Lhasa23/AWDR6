@@ -13,6 +13,22 @@
   text-decoration: none;
   color: #fff;
   border-radius: 4px;
+
+  &:hover, &:visited, &:active, &:focus {
+    color: #fff;
+    outline: none;
+    text-decoration: none;
+  }
+}
+
+.btn-primary {
+  @include btn;
+  background-color: #408cff;
+}
+
+.btn-danger {
+  @include btn;
+  background-color: #CC3F33;
 }
 
 table {
@@ -30,20 +46,10 @@ table {
     .line-item {
       @include price;
 
-      .btn-primary {
-        @include btn;
-        background-color: #408cff;
-      }
-
       .title {
         font-size: 14px;
         font-weight: 500;
         color: #333333;
-      }
-
-      .btn-danger {
-        @include btn;
-        background-color: #CC3F33;
       }
     }
   }

@@ -26,3 +26,5 @@
 		<%= render 'line_items/total_price' %>
 	</span>
 </div>
+
+<%= link_to 'Clear', cart_path(@cart), method: :delete, class: 'btn-danger clear', remote: true %>
