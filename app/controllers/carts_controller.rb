@@ -16,6 +16,16 @@ class CartsController < ApplicationController
   private
 
   def set_current_cart
-    @current_cart = Cart.find(params[:id])
+    begin
+      @current_cart = Cart.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      @current_cart = nil
+    end
+
+    if @current_cart.nil? || @current_cart.id != @cart.id
+      respond_to do |format|
+        format.html { redirect_to store_index_url, notice: "Something was wrong, Please try again" }
+      end
+    end
   end
 end
