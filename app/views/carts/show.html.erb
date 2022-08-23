@@ -1,2 +1,32 @@
-<h1>Carts#show</h1>
-<p>Find me in app/views/carts/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<h1>Cart</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Amount</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody class="line-items">
+    <% @cart.line_items.each do |line_item| %>
+      <tr id="<%= line_item.id %>" class="line-item">
+        <%= render 'line_items/line_item', line_item: line_item %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="total">
+  <span>
+    Total:
+  </span>
+  <span class="price">
+    <%= render 'line_items/total_price', line_items: @cart.line_items %>
+  </span>
+</div>

@@ -1,2 +1,2 @@
-<% total_price = @line_items.sum { |line_item| line_item.product.price * line_item.quantity }.to_f %>
+<% total_price = line_items.sum { |line_item| line_item.product.price * line_item.quantity }.to_f %>
 <%= number_to_currency(total_price, locale: 'zh-CN') %>
