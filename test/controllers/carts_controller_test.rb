@@ -14,8 +14,7 @@ class CartsControllerTest < ActionDispatch::IntegrationTest
     get store_index_url
     cart = Cart.find(session[:cart_id])
     delete cart_url(cart), xhr: true
-
-    assert cart.line_items.blank?
+    assert_equal(0, cart.line_items.size)
   end
 
   test "should cart do not exist" do
