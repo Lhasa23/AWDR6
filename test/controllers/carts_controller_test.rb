@@ -14,17 +14,13 @@ class CartsControllerTest < ActionDispatch::IntegrationTest
     get store_index_url
     cart = Cart.find(session[:cart_id])
     delete cart_url(cart), xhr: true
-    assert_equal(0, cart.line_items.size)
+
+    assert cart.line_items.blank?
   end
 
   test "should cart do not exist" do
-    cart_id = 0
-    get cart_url(cart_id)
+    get cart_url(0)
     assert_redirected_to store_index_url
-    # 备用写法
-    # assert_raises(ActiveRecord::RecordNotFound, "Couldn't find Cart with 'id'=#{cart_id}") do
-    #   get cart_url(cart_id)
-    # end
   end
 
   test "should cart not belongs to the owner" do
