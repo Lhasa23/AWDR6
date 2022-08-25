@@ -25,7 +25,6 @@ class LineItemsController < ApplicationController
       if @line_item.update(line_item_params)
         @line_items = @cart.line_items
         format.js
-        format.html { redirect_to line_item_url(@line_item), notice: "Line Item was successfully updated." }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @line_item.errors, status: :unprocessable_entity }
@@ -38,7 +37,6 @@ class LineItemsController < ApplicationController
     @line_item.destroy
     @line_items = @cart.line_items
     respond_to do |format|
-      format.html { redirect_to line_items_url, notice: "Line Item was successfully destroyed." }
       format.js
     end
   end

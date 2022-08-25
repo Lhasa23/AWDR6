@@ -14,11 +14,7 @@
   </thead>
 
   <tbody class="line-items">
-    <% @cart.line_items.each do |line_item| %>
-      <tr id="<%= line_item.id %>" class="line-item">
-        <%= render 'line_items/line_item', line_item: line_item %>
-      </tr>
-    <% end %>
+    <%= render @cart.line_items %>
   </tbody>
 </table>
 
