@@ -37,7 +37,6 @@ class LineItemsController < ApplicationController
     @line_item.destroy
     @line_items = @cart.line_items
     respond_to do |format|
-      format.html { redirect_to line_items_url, notice: "Line Item was successfully destroyed." }
       format.js
     end
   end

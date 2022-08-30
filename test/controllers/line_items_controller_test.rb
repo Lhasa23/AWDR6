@@ -20,10 +20,8 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
 
   test "should destroy line_item" do
     assert_difference('LineItem.count', -1) do
-      delete line_item_url(@line_item)
+      delete line_item_url(@line_item), xhr: true
     end
-
-    assert_redirected_to line_items_url
   end
 
   test "should update line item quantity" do
