@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :carts, only: [:show]
+  resources :carts, only: [:show, :destroy]
   resources :line_items, only: %i(create update destroy)
   root 'store#index', as: :store_index
   resources :products
