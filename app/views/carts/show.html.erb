@@ -26,3 +26,6 @@
     <%= render 'line_items/total_price', line_items: @cart.line_items %>
   </span>
 </div>
+<div>
+  <%= link_to 'Clear', cart_path(@cart), method: :delete, class: 'destroy-btn' %>
+</div>
