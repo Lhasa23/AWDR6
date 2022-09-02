@@ -6,6 +6,13 @@ class CartsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should not exists cart" do
+    get cart_url('xxx')
+    assert_redirected_to store_index_url
+    assert_equal 'invalid cart', flash[:notice]
+  end
+
+
   test "should destroy cart" do
     delete cart_url(carts(:one))
     refute Cart.exists?(carts(:one).id)
