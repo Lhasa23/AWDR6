@@ -16,6 +16,10 @@ class CartsController < ApplicationController
   def check_cart
     unless Cart.exists?(params[:id])
       redirect_to store_index_url, notice: 'invalid cart'
+      return
+    end
+    unless @cart.id.to_s == params[:id]
+      redirect_to store_index_url, notice: 'invalid cart'
     end
   end
 end
