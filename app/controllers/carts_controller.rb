@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-  before_action :check_cart, only: [:show]
+  before_action :check_cart
 
   def show
   end
