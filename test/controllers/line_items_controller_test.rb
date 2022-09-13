@@ -11,6 +11,8 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to cart_url(id: session[:cart_id])
+    line_item = LineItem.last
+    assert_equal(line_item.product.price, line_item.price)
   end
 
   test "should destroy line_item" do
