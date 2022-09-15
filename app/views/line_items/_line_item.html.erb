@@ -13,7 +13,7 @@
     <%= number_to_currency(line_item.price, locale: 'zh-CN') %>
   </td>
   <td class="amount">
-    <%= number_to_currency(line_item.quantity * line_item.price, locale: 'zh-CN') %>
+    <%= number_to_currency(line_item.total_price, locale: 'zh-CN') %>
   </td>
   <td class="action">
     <%= link_to 'Delete', line_item_path(id: line_item), method: :delete, class: 'destroy-btn', remote: true %>
