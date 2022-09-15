@@ -35,6 +35,9 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
     line_item = line_items(:one)
     new_quantity = line_item.quantity + 1
     put line_item_url(line_item), params: { line_item: { quantity: new_quantity } }, xhr: true
-    assert_equal(new_quantity, line_item.reload.quantity)
+
+    line_item.reload
+    assert_equal(line_item.product.price, line_item.price)
+    assert_equal(new_quantity, line_item.quantity)
   end
 end

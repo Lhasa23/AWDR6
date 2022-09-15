@@ -23,6 +23,8 @@ class LineItemsController < ApplicationController
   def update
     respond_to do |format|
       if @line_item.update(line_item_params)
+        @line_item.price = @line_item.product.price
+        @line_item.save!
         @line_items = @cart.line_items
         format.js
       else
