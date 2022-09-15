@@ -26,7 +26,9 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
     post line_items_url, params: { line_item: { product_id: product.id } }
     post line_items_url, params: { line_item: { product_id: product.id } }
 
-    assert_equal(2, LineItem.last.quantity)
+    line_item = LineItem.last
+    assert_equal(2, line_item.quantity)
+    assert_equal(line_item.product.price, line_item.price)
   end
 
   test "should update line item quantity" do
