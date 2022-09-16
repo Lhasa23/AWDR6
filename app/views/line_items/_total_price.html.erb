@@ -1,3 +1,2 @@
-<!-- <% total_price = line_items.sum { |line_item| line_item.total_price }.to_f %> -->
 <% total_price = line_items.sum(&:total_price).to_f %>
 <%= number_to_currency(total_price, locale: 'zh-CN') %>
