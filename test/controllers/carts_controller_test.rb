@@ -20,9 +20,11 @@ class CartsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy cart" do
-    delete cart_url(carts(:one))
-    refute Cart.exists?(carts(:one).id)
+    get store_index_url
+    cart_id = session[:cart_id]
+    delete cart_url(cart_id)
 
+    refute Cart.exists?(cart_id)
     assert_redirected_to cart_url(session[:cart_id])
   end
 end
