@@ -4,6 +4,7 @@ class LineItemsController < ApplicationController
   before_action :set_line_item, only: %i[ update destroy ]
   after_action :access_count_reset, only: [:create]
 
+
   # POST /line_items or /line_items.json
   def create
     product = Product.find(line_item_params[:product_id])
@@ -22,8 +23,9 @@ class LineItemsController < ApplicationController
   def update
     respond_to do |format|
       if @line_item.update(line_item_params)
+        @line_item.price = @line_item.product.price
+        @line_item.save!
         @line_items = @cart.line_items
-        format.html { redirect_to line_item_url(@line_item), notice: "Line Item was successfully updated." }
         format.js
       else
         format.html { render :edit, status: :unprocessable_entity }

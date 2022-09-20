@@ -1,23 +1,18 @@
 require "test_helper"
 
 class CartTest < ActiveSupport::TestCase
-  test "add_product twice" do
-    product = products(:one)
-    cart = carts(:one)
-    2.times { cart.add_product(product).save }
+  test "should add product when line item not exists" do
+    line_item = carts(:one).add_product(products(:ruby))
 
-    line_items = cart.line_items.where(product_id: product.id)
-    assert_equal(1, line_items.size)
-    assert_equal(2, line_items.first.quantity)
+    assert_equal(line_item.product.price, line_item.price)
+    assert_equal(1, line_item.quantity)
   end
 
-  test "add_product when line_item not exists" do
-    product = products(:one)
-    cart = carts(:one)
-    cart.add_product(product).save
+  test "should add product when line item exists" do
+    line_item = carts(:one).line_items.last
+    new_line_item = carts(:one).add_product(line_item.product)
 
-    line_items = cart.line_items.where(product_id: product.id)
-    assert_equal(1, line_items.size)
-    assert_equal(1, line_items.first.quantity)
+    assert_equal(line_item.quantity + 1, new_line_item.quantity)
+    assert_equal(new_line_item.product.price, new_line_item.price)
   end
 end

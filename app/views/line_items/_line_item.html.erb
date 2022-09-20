@@ -1,17 +1,21 @@
 <tr id="<%= line_item.id %>" class="line-item">
   <td class="title"><%= line_item.product.title %></td>
   <td class="quantity">
-    <%= link_to "-", line_item_path(id: line_item, params: { line_item: { quantity:line_item.quantity - 1 }}), class: 'btn-primary minus', method: :patch, remote: true  %>
+    <% if line_item.quantity == 1 %>
+      <%= link_to "-", line_item_path(id: line_item), class: 'calculate destroy', method: :delete, remote: true  %>
+    <% else %>
+      <%= link_to "-", line_item_path(id: line_item, params: { line_item: { quantity:line_item.quantity - 1 }}), class: 'calculate minus', method: :patch, remote: true  %>
+    <% end %>
     <%= line_item.quantity %>
-    <%= link_to "+", line_item_path(id: line_item, params: { line_item: { quantity:line_item.quantity + 1 }}), class: 'btn-primary add', method: :patch, remote: true %>
+    <%= link_to "+", line_item_path(id: line_item, params: { line_item: { quantity:line_item.quantity + 1 }}), class: 'calculate add', method: :patch, remote: true %> 
   </td>
   <td class="price">
     <%= number_to_currency(line_item.price, locale: 'zh-CN') %>
   </td>
   <td class="amount">
-    <%= number_to_currency(line_item.quantity * line_item.price, locale: 'zh-CN') %>
+    <%= number_to_currency(line_item.total_price, locale: 'zh-CN') %>
   </td>
-  <td class="actions">
-    <%= link_to 'Delete', line_item_path(id: line_item), class: 'btn-danger', method: :delete, remote: true%>
+  <td class="action">
+    <%= link_to 'Delete', line_item_path(id: line_item), method: :delete, class: 'btn-danger', remote: true %>
   </td>
 </tr>
