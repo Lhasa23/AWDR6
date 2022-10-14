@@ -50,6 +50,14 @@ table {
         font-size: 14px;
         font-weight: 500;
         color: #333333;
+        width: 20px;
+        white-space: pre-wrap;
+      }
+
+      .quantity {
+        display: flex;
+        align-items: center;
+        font-variant-numeric: tabular-nums;
       }
     }
   }
@@ -63,4 +71,8 @@ table {
   justify-content: space-between;
 
   @include price;
+}
+
+.clear-btn {
+  line-height: 31px;
 }

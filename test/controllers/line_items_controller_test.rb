@@ -7,10 +7,8 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create line_item" do
     assert_difference('LineItem.count') do
-      post line_items_url, params: { line_item: { product_id: @line_item.product_id } }
+      post line_items_url, params: { line_item: { product_id: @line_item.product_id } }, xhr: true
     end
-
-    assert_redirected_to cart_url(session[:cart_id])
   end
 
   test "should destroy line_item" do
