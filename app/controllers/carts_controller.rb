@@ -8,7 +8,10 @@ class CartsController < ApplicationController
     Cart.find(params[:id]).destroy
     set_cart
 
-    redirect_to cart_url(@cart)
+    respond_to do |format|
+      format.js
+    end
+
   end
 
   private

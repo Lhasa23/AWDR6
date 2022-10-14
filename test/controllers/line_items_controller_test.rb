@@ -9,8 +9,6 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('LineItem.count') do
       post line_items_url, params: { line_item: { product_id: @line_item.product_id } }
     end
-
-    assert_redirected_to cart_url(session[:cart_id])
   end
 
   test "should destroy line_item" do

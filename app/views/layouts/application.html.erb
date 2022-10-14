@@ -17,6 +17,9 @@
 		</header>
 		<section class="content">
 			<nav class="side_nav">
+				<div id="cart">
+					<%= render 'carts/cart', cart: @cart %>
+				</div>
 				<ul>
 					<% if session.fetch(:counter, 0) > 5 %>
 						<li class="access-count" style="color: white">
