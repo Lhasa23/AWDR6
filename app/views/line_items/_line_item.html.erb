@@ -2,12 +2,12 @@
   <td class="title"><%= line_item.product.title %></td>
   <td class="quantity">
     <% if line_item.quantity == 1 %>
-      <%= link_to "-", line_item_path(id: line_item), class: 'destroy btn-primary', method: :delete, remote: true  %>
+      <%= link_to "-", line_item_path(id: line_item), class: 'btn-primary', method: :delete, remote: true  %>
     <% else %>
-      <%= link_to "-", line_item_path(id: line_item, params: { line_item: { quantity:line_item.quantity - 1 }}), class: 'minus btn-primary', method: :patch, remote: true  %>
+      <%= link_to "-", line_item_path(id: line_item, params: { line_item: { quantity:line_item.quantity - 1 }}), class: 'btn-primary', method: :patch, remote: true  %>
     <% end %>
     <%= line_item.quantity %>
-    <%= link_to "+", line_item_path(id: line_item, params: { line_item: { quantity:line_item.quantity + 1 }}), class: 'add btn-primary', method: :patch, remote: true %> 
+    <%= link_to "+", line_item_path(id: line_item, params: { line_item: { quantity:line_item.quantity + 1 }}), class: 'btn-primary', method: :patch, remote: true %> 
   </td>
   <td class="price">
     <%= number_to_currency(line_item.price, locale: 'zh-CN') %>
