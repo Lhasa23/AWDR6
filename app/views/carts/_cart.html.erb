@@ -23,5 +23,5 @@
   </span>
 </div>
 <div>
-  <%= link_to 'Clear', cart_path(cart), method: :delete, class: 'destroy-btn' %>
+  <%= link_to 'Clear', cart_path(cart), method: :delete, remote: true, class: 'destroy-btn' %>
 </div>
