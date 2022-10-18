@@ -39,7 +39,7 @@ table {
       font-size: 16px;
       font-weight: bold;
       color: #333333;
-      padding: 0 10px 8px;
+      padding: 0 10px 5px;
     }
   }
 
@@ -48,8 +48,9 @@ table {
       @include price;
 
       td {
-        padding: 0 10px 8px;
+        padding: 0 10px 5px;
       }
+
       .title {
         font-size: 14px;
         font-weight: 500;
@@ -63,22 +64,19 @@ table {
         align-items: center;
         font-variant-numeric: tabular-nums;
       }
-    }
-    .latest {
-      animation: fade-yellow-item 0.8s linear 0s 3;
-    }
 
-    @keyframes fade-yellow-item {
-      0% {
-        background-color: #ffffff;
-      }
+      &.latest {
+        animation: shining 1s ease-in-out 0s 10;
 
-      50% {
-        background-color: #f1ff91;
-      }
+        @keyframes shining {
+          0% {
+            background: #fff;
+          }
 
-      100% {
-        background-color: #ffffff;
+          100% {
+            background: #bbffbb;
+          }
+        }
       }
     }
   }
