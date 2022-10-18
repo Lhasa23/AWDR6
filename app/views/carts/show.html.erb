@@ -1,31 +1,4 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Cart</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Quantity</th>
-      <th>Price</th>
-      <th>Amount</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-
-  <tbody class="line-items">
-    <%= render @cart.line_items %>
-  </tbody>
-</table>
-
-<div class="total">
-  <span>
-    Total:
-  </span>
-  <span class="price">
-    <%= render 'line_items/total_price', line_items: @cart.line_items %>
-  </span>
-</div>
-<div>
-  <%= link_to 'Clear', cart_path(@cart), method: :delete, class: 'destroy-btn' %>
-</div>
+<%= render @cart %>
