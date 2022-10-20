@@ -13,6 +13,7 @@ class LineItemsController < ApplicationController
     respond_to do |format|
       if @line_item.save
         format.html { redirect_to cart_url(@cart), notice: "Line item was successfully created." }
+        format.js
       else
         format.html { render :new, status: :unprocessable_entity }
       end

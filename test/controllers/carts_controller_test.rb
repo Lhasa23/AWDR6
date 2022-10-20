@@ -25,7 +25,6 @@ class CartsControllerTest < ActionDispatch::IntegrationTest
     delete cart_url(cart_id), xhr: true
 
     assert Cart.find(cart_id).line_items.blank?
-    # assert_redirected_to cart_url(session[:cart_id])
     assert_select 'tbody tr', 0
   end
 end
