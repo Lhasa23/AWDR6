@@ -1,2 +1,2 @@
-$('#<%= @line_item.id %>').replaceWith(`<%= render 'line_item', line_item: @line_item %>`)
-$('.total .price').html(`<%= render 'total_price', line_items: @line_items %>`)
+$('#cart #<%= @line_item.id %>').replaceWith("<%= j render 'line_item', line_item: @line_item %>")
+$('#cart .total .price').html("<%= j render 'total_price', line_items: @line_items %>")
