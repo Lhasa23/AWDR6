@@ -1,1 +1,2 @@
-$('#cart').html(`<%= render_if @cart.line_items.present?, @cart, cart: @cart %>`)
+$('#cart').html('')
+$(`.total .price`).html('')
