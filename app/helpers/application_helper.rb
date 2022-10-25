@@ -1,7 +1,7 @@
 module ApplicationHelper
-  def render_if(condition, content, props)
+  def render_if(condition, *props)
     if condition
-      render content, props
+      render *props
     end
   end
 end
