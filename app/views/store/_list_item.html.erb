@@ -1,5 +1,7 @@
 <li id="<%= product.id %>">
-  <%= image_tag(product.image_url) %>
+  <%= link_to line_items_path(line_item: { product_id: product }), method: :post, remote: true do %>
+    <%= image_tag(product.image_url) %>
+  <% end %>
   <h2><%= product.title %></h2>
   <p><%= sanitize(product.description) %></p>
   <div class="price">
