@@ -2,6 +2,7 @@
 // Place all the styles related to the Store controller here.
 // They will automatically be included in application.scss.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@import 'global';
 
 .store {
   max-width: 80em;
@@ -53,6 +54,9 @@
         &:hover {
           background-color: #141;
         }
+      }
+      &.latest {
+        @include latest-animation;
       }
     }
   }

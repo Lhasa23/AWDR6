@@ -1,4 +1,4 @@
-<tr id="<%= line_item.id %>" class="line-item <%= line_item.id == latest_line_item&.id ? 'latest' : '' %>">
+<tr id="<%= line_item.id %>" data-product="<%= line_item.product.id %>" class="line-item">
   <td class="title"><%= line_item.product.title %></td>
   <td class="quantity">
     <% if line_item.quantity == 1 %>
@@ -17,5 +17,6 @@
   </td>
   <td class="action">
     <%= link_to 'Delete', line_item_path(id: line_item), method: :delete, class: 'btn-danger', remote: true %>
+    <%= link_to "", refresh_line_item_path(id: line_item), class: 'refresh', method: :get, remote:  true %>
   </td>
 </tr>

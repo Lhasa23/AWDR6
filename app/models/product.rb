@@ -1,6 +1,7 @@
 class Product < ApplicationRecord
   has_many :line_items
   before_destroy :ensure_not_referenced_by_any_line_item
+  after_save :sync_line_item_price
 
   validates :title, :description, :image_url, presence: true
   validates :price, numericality: { greater_than_or_equal_to: 0.01 }
@@ -20,6 +21,13 @@ class Product < ApplicationRecord
     unless line_items.empty?
       errors.add(:base, 'Line Item present')
       throw :abort
+    end
+  end
+
+  def sync_line_item_price
+    line_items.each do |line_item|
+      line_item.price = price
+      line_item.save!
     end
   end
 end
