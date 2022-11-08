@@ -1,6 +1,8 @@
 // Place all the styles related to the LineItems controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@import 'global';
+
 @mixin price {
   .price, .amount {
     font-size: 14px;
@@ -71,21 +73,7 @@
         }
 
         &.latest {
-          animation: fade-yellow-item 0.8s linear 0s 3;
-        }
-
-        @keyframes fade-yellow-item {
-          0% {
-            background-color: #ffffff;
-          }
-
-          50% {
-            background-color: #f1ff91;
-          }
-
-          100% {
-            background-color: #ffffff;
-          }
+          @include latest-animation;
         }
       }
     }
