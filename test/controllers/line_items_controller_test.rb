@@ -6,8 +6,24 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create line_item" do
+    get store_index_url
     assert_difference('LineItem.count') do
       post line_items_url, params: { line_item: { product_id: @line_item.product_id } }, xhr: true
+    end
+    assert_select 'tbody tr', 1
+  end
+
+  test "should create line_item failed" do
+    get store_index_url
+
+    mock = Minitest::Mock.new
+    def mock.save; false; end
+    cart_mock = Minitest::Mock.new
+    cart_mock.expect :add_product, mock, [Product]
+
+    Cart.stub :find, cart_mock do
+      post line_items_url, params: { line_item: { product_id: @line_item.product_id }}, xhr: true
+      assert_select('#notice', 'add to cart fail')
     end
   end
 

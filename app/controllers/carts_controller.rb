@@ -5,13 +5,11 @@ class CartsController < ApplicationController
   end
 
   def destroy
-    Cart.find(params[:id]).destroy
-    set_cart
+    Cart.find(params[:id]).line_items.delete_all
 
     respond_to do |format|
       format.js
     end
-
   end
 
   private
