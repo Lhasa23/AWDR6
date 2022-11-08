@@ -59,6 +59,19 @@ table {
         align-items: center;
         font-variant-numeric: tabular-nums;
       }
+
+      @keyframes line-item-highlight {
+        0% {
+          background: #8f8;
+        }
+        100% {
+          background: none;
+        }
+      }
+
+      &.latest {
+        animation: line-item-highlight 1s;
+      }
     }
   }
 }

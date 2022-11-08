@@ -10,7 +10,7 @@
   </thead>
 
   <tbody class="line-items">
-    <%= render cart.line_items %>
+    <%= render cart.line_items, latest_line_item: @line_item %>
   </tbody>
 </table>
 

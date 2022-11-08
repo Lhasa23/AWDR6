@@ -18,7 +18,7 @@
 		<section class="content">
 			<nav class="side_nav">
 				<div id="cart">
-					<%= render 'carts/cart', cart: @cart %>
+					<%= render @cart %>
 				</div>
 				<ul>
 					<% if session.fetch(:counter, 0) > 5 %>
@@ -29,7 +29,6 @@
 					<li style="color: white">
 						<%= Time.now.strftime("%Y/%m/%d %H:%M:%S") %>
 					</li>
-					<li class="cart"><%= render @cart %></li>
 					<li><a href="/">Home</a></li>
 					<li><a href="/questions">Questions</a></li>
 					<li><a href="/news">News</a></li>

@@ -1,2 +1,3 @@
-$('#cart #<%= @line_item.id %>').replaceWith("<%= j render 'line_item', line_item: @line_item %>")
+$('#cart .line-item.latest').removeClass("latest")
+$('#cart #<%= @line_item.id %>').replaceWith("<%= j render 'line_item', line_item: @line_item, latest_line_item: @line_item %>")
 $('#cart .total .price').html("<%= j render 'total_price', line_items: @line_items %>")

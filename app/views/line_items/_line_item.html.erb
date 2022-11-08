@@ -1,4 +1,4 @@
-<tr id="<%= line_item.id %>" class="line-item">
+<tr id="<%= line_item.id %>" class="line-item <%= line_item.id == latest_line_item&.id ? 'latest' : '' %>">
   <td class="title"><%= line_item.product.title %></td>
   <td class="quantity">
     <% if line_item.quantity == 1 %>
