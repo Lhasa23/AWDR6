@@ -18,7 +18,7 @@
 		<section class="content">
 			<nav class="side_nav">
 				<div id="cart">
-					<%= render @cart %>
+					<%= render_if @cart.line_items.present?, @cart %>
 				</div>
 				<ul>
 					<% if session.fetch(:counter, 0) > 5 %>

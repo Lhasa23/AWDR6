@@ -31,70 +31,76 @@
   background-color: #CC3F33;
 }
 
-table {
-  border-spacing: 0;
+.cart-container {
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px 8px;
 
-  thead tr {
-    th {
-      font-size: 16px;
-      font-weight: bold;
-      color: #333333;
-      padding: 0 10px 8px;
-    }
-  }
+  table {
+    border-spacing: 0;
 
-  tbody.line-items {
-    .line-item {
-      @include price;
-
-      td {
+    thead tr {
+      th {
+        font-size: 16px;
+        font-weight: bold;
+        color: #333333;
         padding: 0 10px 8px;
       }
-      .title {
-        font-size: 14px;
-        font-weight: 500;
-        color: #333333;
-        width: 20px;
-        white-space: pre-wrap;
-      }
+    }
 
-      .quantity {
-        display: flex;
-        align-items: center;
-        font-variant-numeric: tabular-nums;
-      }
+    tbody.line-items {
+      .line-item {
+        @include price;
 
-      &.latest {
-        animation: fade-yellow-item 0.8s linear 0s 3;
-      }
-
-      @keyframes fade-yellow-item {
-        0% {
-          background-color: #ffffff;
+        td {
+          padding: 0 10px 8px;
+        }
+        .title {
+          font-size: 14px;
+          font-weight: 500;
+          color: #333333;
+          width: 20px;
+          white-space: pre-wrap;
         }
 
-        50% {
-          background-color: #f1ff91;
+        .quantity {
+          display: flex;
+          align-items: center;
+          font-variant-numeric: tabular-nums;
         }
 
-        100% {
-          background-color: #ffffff;
+        &.latest {
+          animation: fade-yellow-item 0.8s linear 0s 3;
+        }
+
+        @keyframes fade-yellow-item {
+          0% {
+            background-color: #ffffff;
+          }
+
+          50% {
+            background-color: #f1ff91;
+          }
+
+          100% {
+            background-color: #ffffff;
+          }
         }
       }
     }
   }
-}
 
-.total {
-  margin-top: 20px;
-  padding: 8px;
-  border-top: 1px solid black;
-  display: flex;
-  justify-content: space-between;
+  .total {
+    margin-top: 20px;
+    padding: 8px;
+    border-top: 1px solid black;
+    display: flex;
+    justify-content: space-between;
 
-  @include price;
-}
+    @include price;
+  }
 
-.clear-btn {
-  line-height: 31px;
+  .clear-btn {
+    line-height: 31px;
+  }
 }

@@ -1,2 +1,2 @@
-$('#cart #<%= @line_item.id %>').remove()
-$('#cart .total .price').html("<%= j render 'total_price', line_items: @line_items %>")
+$('#cart').html("<%= j reder_if @cart.line_items.present?, @cart")
+

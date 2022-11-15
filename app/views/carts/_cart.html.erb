@@ -1,26 +1,28 @@
-<table>
-  <thead>
-  <tr>
-    <th>Title</th>
-    <th>Quantity</th>
-    <th>Price</th>
-    <th>Amount</th>
-    <th>Actions</th>
-  </tr>
-  </thead>
+<div class="cart-container">
+  <table>
+    <thead>
+    <tr>
+      <th>Title</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Amount</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
 
-  <tbody class="line-items">
-    <%= render cart.line_items, latest_line_item: @line_item %>
-  </tbody>
-</table>
+    <tbody class="line-items">
+      <%= render cart.line_items, latest_line_item: @line_item %>
+    </tbody>
+  </table>
 
-<div class="total">
-  <span>
-    Total:
-  </span>
-  <span class="price">
-    <%= render 'line_items/total_price', line_items: cart.line_items %>
-  </span>
+  <div class="total">
+    <span>
+      total:
+    </span>
+    <span class="price">
+      <%= render 'line_items/total_price', line_items: cart.line_items %>
+    </span>
+  </div>
+
+  <%= link_to 'clear', cart_path(cart), method: :delete, remote: true, class: 'clear-btn btn-danger' %>
 </div>
-
-<%= link_to 'Clear', cart_path(cart), method: :delete, remote: true, class: 'clear-btn btn-danger' %>
