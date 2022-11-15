@@ -64,34 +64,22 @@ table {
         font-variant-numeric: tabular-nums;
       }
 
-      @keyframes line-item-highlight {
-        0% {
-          background: #8f8;
-        }
-        100% {
-          background: none;
-        }
-      }
-
       &.latest {
-        animation: line-item-highlight 1s;
-      }
-    }
-    .latest {
-      animation: fade-yellow-item 0.8s linear 0s 3;
-    }
-
-    @keyframes fade-yellow-item {
-      0% {
-        background-color: #ffffff;
+        animation: fade-yellow-item 0.8s linear 0s 3;
       }
 
-      50% {
-        background-color: #f1ff91;
-      }
+      @keyframes fade-yellow-item {
+        0% {
+          background-color: #ffffff;
+        }
 
-      100% {
-        background-color: #ffffff;
+        50% {
+          background-color: #f1ff91;
+        }
+
+        100% {
+          background-color: #ffffff;
+        }
       }
     }
   }
