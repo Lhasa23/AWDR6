@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'store#index', as: :store_index
   resources :products
   resources :carts, only: [:show, :destroy]
-  resources :line_items do
+  resources :line_items, only: [:create, :update, :destroy] do
     member do
       get 'refresh'
     end
