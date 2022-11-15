@@ -17,6 +17,6 @@
   </td>
   <td class="action">
     <%= link_to 'Delete', line_item_path(id: line_item), method: :delete, class: 'btn-danger', remote: true %>
-    <%= link_to "", "/line_items/#{line_item.id}/refresh", params: { id: line_item.id  }, class: 'refresh', method: :get, remote:  true %>
+    <%= link_to "", refresh_line_item_path(line_item), params: { id: line_item.id  }, class: 'refresh', method: :get, remote:  true %>
   </td>
 </tr>
