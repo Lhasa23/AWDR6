@@ -1,13 +1,13 @@
 <div class="cart-container">
   <table>
     <thead>
-    <tr>
-      <th>Title</th>
-      <th>Quantity</th>
-      <th>Price</th>
-      <th>Amount</th>
-      <th>Actions</th>
-    </tr>
+      <tr>
+        <th>Title</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Amount</th>
+        <th>Actions</th>
+      </tr>
     </thead>
 
     <tbody class="line-items">
@@ -17,12 +17,12 @@
 
   <div class="total">
     <span>
-      total:
+      Total:
     </span>
-    <span class="price">
+      <span class="price">
       <%= render 'line_items/total_price', line_items: cart.line_items %>
     </span>
   </div>
 
-  <%= link_to 'clear', cart_path(cart), method: :delete, remote: true, class: 'clear-btn btn-danger' %>
+  <%= link_to 'Clear', cart_path(cart), method: :delete, remote: true, class: 'clear-btn btn-danger' %>
 </div>
