@@ -9,7 +9,7 @@
 	<% cache @products do %>
 		<% @products.each do |product| %>
 			<% cache product do %>
-				<%= render 'store/product', product: product %>
+				<%= render 'store/product', product: product, latest: false %>
 			<% end %>
 		<% end %>
 	<% end %>

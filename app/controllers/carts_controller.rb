@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-  before_action :check_cart
+  before_action :check_cart, only: [:show, :destroy]
 
   def show
   end
@@ -10,6 +10,10 @@ class CartsController < ApplicationController
     respond_to do |format|
       format.js
     end
+  end
+
+  def refresh
+    @line_item = @cart.line_items.order(:updated_at).last
   end
 
   private

@@ -7,7 +7,7 @@ one:
   price: 9.99
 
 two:
-  title: MyString2
+  title: MyString 2.0
   description: MyText
   image_url: ridocker.jpg
   price: 9.99

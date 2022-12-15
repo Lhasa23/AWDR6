@@ -5,4 +5,9 @@ class LineItem < ApplicationRecord
   def total_price
     quantity * price
   end
+
+  def sync_product!
+    self.price = product.price
+    save!
+  end
 end
