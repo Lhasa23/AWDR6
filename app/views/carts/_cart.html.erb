@@ -24,6 +24,6 @@
     </span>
   </div>
 
-  <%= link_to 'Clear', cart_path(cart), method: :delete, remote: true, class: 'clear-btn btn-danger' %>
+  <%= link_to 'Clear', carts_path, method: :delete, remote: true, class: 'clear-btn btn-danger' %>
   <%= link_to 'Refresh', refresh_carts_path, remote: true, class: 'refresh-cart-btn', hidden: true %>
 </div>
