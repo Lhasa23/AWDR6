@@ -1,7 +1,7 @@
 class LineItemsController < ApplicationController
   include AccessCounter
 
-  before_action :set_line_item, only: %i[ update destroy ]
+  before_action :set_line_item, only: %i[ update destroy refresh ]
   after_action :access_count_reset, only: [:create]
 
 
@@ -43,6 +43,13 @@ class LineItemsController < ApplicationController
     @line_item.destroy
     @line_items = @cart.line_items
     respond_to do |format|
+      format.js
+    end
+  end
+
+  def refresh
+    respond_to do |format|
+      @line_items = @cart.line_items
       format.js
     end
   end

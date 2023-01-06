@@ -1,6 +1,8 @@
 // Place all the styles related to the LineItems controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@import 'global';
+
 @mixin price {
   .price, .amount {
     font-size: 14px;
@@ -68,6 +70,10 @@
           display: flex;
           align-items: center;
           font-variant-numeric: tabular-nums;
+        }
+
+        &.latest {
+          @include latest-animation;
         }
       }
     }
