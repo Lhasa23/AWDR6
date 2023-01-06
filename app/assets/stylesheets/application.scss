@@ -56,24 +56,6 @@ header.main {
     -webkit-box-orient: horizontal;
   }
 
-  .latest {
-    animation: fade-yellow-item 0.8s linear 0s 3;
-  }
-
-  @keyframes fade-yellow-item {
-    0% {
-      background-color: #ffffff;
-    }
-
-    50% {
-      background-color: #f1ff91;
-    }
-
-    100% {
-      background-color: #ffffff;
-    }
-  }
-
   nav {
     padding-bottom: 1em;
     background: #141;
